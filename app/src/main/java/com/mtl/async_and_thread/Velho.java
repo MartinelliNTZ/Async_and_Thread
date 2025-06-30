@@ -1,5 +1,14 @@
 package com.mtl.async_and_thread;
 
+/**
+ * @author Matheus Martinelli
+ * Created on *30-06-2025
+ * martinelli.matheus2@gmail.com
+ */
+public class Velho {
+    /*
+    package com.mtl.async_and_thread;
+
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,21 +26,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
-
     Button btnIniciar, btnPausar, btnBaixar;
     TextView txtCentral;
     ImageView imgNet;
     private boolean flag = true;
-    private Handler handler = new Handler(); // permite atualizar a UI a partir de uma thread
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Ligando os componentes com o layout
+        // Ligando os botões com o layout
         btnIniciar = findViewById(R.id.btnIniciar);
         btnPausar = findViewById(R.id.btnPausar);
         btnBaixar = findViewById(R.id.btnBaixar);
@@ -39,89 +48,82 @@ public class MainActivity extends AppCompatActivity {
         imgNet = findViewById(R.id.imgNet);
     }
 
-    // Método para iniciar execução em loop
+    // Método chamado ao clicar no botão Iniciar
     public void iniciar(View v) {
-        Toast.makeText(this, "Iniciado!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "xp!", Toast.LENGTH_SHORT).show();
         flag = true;
-
-        new Thread(new Runnable() {
+        new Thread(){
             @Override
             public void run() {
-                while (flag) {
-                    Log.i("APPxt", "Executando");
+                while (flag){
 
+                    Log.i("APPxt","Executando");
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            txtCentral.append("\nExecutando...");
-                            Toast.makeText(MainActivity.this, "Rodando!", Toast.LENGTH_SHORT).show();
+                            txtCentral.setText(txtCentral.getText()+"\nExecutando....");
+                            Toast.makeText(MainActivity.this, "xp!", Toast.LENGTH_SHORT).show();
                         }
                     });
-
-                    try {
+                    try{
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        }).start();
+        }.start();
+
+
+
     }
 
-    // Método para parar o loop
+    // Método chamado ao clicar no botão Pausar
     public void pausar(View v) {
         flag = false;
         Toast.makeText(this, "Pausado!", Toast.LENGTH_SHORT).show();
     }
+    public void cargaImage(View v){
+        try{
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Carregando Imagem...");
+            progressDialog.show();
 
-    // Método para carregar imagem da internet com ProgressDialog
-    public void cargaImage(View v) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Download");
-        progressDialog.setMessage("Carregando Imagem...");
-        progressDialog.setCancelable(false);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.show();
 
-        new Thread(new Runnable() {
+
+        new Thread(){
             @Override
             public void run() {
-                try {
+                try{
                     URL url = new URL("https://i0.wp.com/assets.b9.com.br/wp-content/uploads/2025/05/google-novo-logo-g.jpg?fit=1920%2C1080&ssl=1");
                     InputStream is = url.openStream();
                     final Bitmap bitmap = BitmapFactory.decodeStream(is);
-                    is.close(); // bom hábito
-
-                    Log.i("APPxt", "Imagem carregada!");
-
+                    Log.i("APPxt","Img Carregada");
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             imgNet.setImageBitmap(bitmap);
-                            progressDialog.dismiss();
                         }
                     });
+                    progressDialog.dismiss();
 
-                } catch (final MalformedURLException e) {
+                } catch (MalformedURLException e) {
                     e.printStackTrace();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MainActivity.this, "URL inválida!", Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                        }
-                    });
-                } catch (final IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MainActivity.this, "Erro ao baixar imagem!", Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                        }
-                    });
                 }
             }
-        }).start();
+        }.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+     //   Toast.makeText(this, "Carregado!", Toast.LENGTH_SHORT).show();
+
+
     }
+}
+     */
 }
