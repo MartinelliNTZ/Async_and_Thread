@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Texto central -->
-
     <!-- Botão Iniciar -->
     <Button
         android:id="@+id/btnIniciar"
@@ -35,6 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5" />
 
+    <!-- Texto central -->
     <TextView
         android:id="@+id/txtCentral"
         android:layout_width="0dp"
@@ -47,12 +46,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPausar" />
 
+    <!-- Botão Baixar 1 -->
     <Button
         android:id="@+id/btnBaixar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:onClick="cargaImage"
         android:text="Baixar"
@@ -60,16 +60,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCentral" />
 
+    <!-- Imagem da internet 1 -->
     <ImageView
         android:id="@+id/imgNet"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBaixar"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <!-- Botão Baixar 2 -->
+    <Button
+        android:id="@+id/btnBaixar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="cargaImage2"
+        android:text="Baixar 2"
+        app:layout_constraintTop_toBottomOf="@+id/imgNet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Imagem da internet 2 -->
+    <ImageView
+        android:id="@+id/imgNet2"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBaixar2"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
 </android.support.constraint.ConstraintLayout>
